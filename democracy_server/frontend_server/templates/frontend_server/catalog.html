@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog</title>
+</head>
+<body>
+    {% for thread in catalog_threads %}
+    <div>
+        <h3>{{ thread.title }}</h3>
+        <p>{{ thread.contents }}<p><br>
+    </div>
+    {% endfor %}
+</body>
+</html>
