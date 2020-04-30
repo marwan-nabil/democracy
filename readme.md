@@ -1,4 +1,7 @@
-# how to install the server
+# latest updates
+- react app can now load thread count using an api request on /api/thread_count
+
+# how to run the server
 ---
 
 1. git clone this repo.
@@ -23,7 +26,7 @@
 `python manage.py runserver`   
 
 
-# how to install the client
+# how to run the client
 ---
 
 1. cd into democracy_client   

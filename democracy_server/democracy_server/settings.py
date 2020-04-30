@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # (marwan): created by us
+    # (marwan): allow cross-origin requests for our React app
+    'corsheaders',
+    # (marwan): our apps
     'rest_framework',
     'frontend_server.apps.FrontendServerConfig',
     'public_api.apps.PublicApiConfig',
@@ -56,7 +58,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'democracy_server.urls'
 

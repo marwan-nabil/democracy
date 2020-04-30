@@ -5,4 +5,6 @@ from . import views
 
 urlpatterns = [
     path('', views.stub_view),
+    # to test front end react app
+    path('thread_count/', views.thread_count),
 ]
