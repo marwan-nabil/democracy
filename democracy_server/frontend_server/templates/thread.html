@@ -1,0 +1,65 @@
+{% extends './base.html' %}
+{% block contents %}
+
+{% include './navbar.html' %}
+
+<div class="container">
+    <!-- thread body -->
+    <div class="row">
+        <div class="card text-center w-100">
+            <div class="card-header">
+                {{ thread.title }}
+            </div>
+            <div class="card-body row">
+                {% if thread.attached_image %}
+                <div class="col-4">
+                    <img class="img-fluid" src="{{ thread.attached_image.url }}">
+                </div>
+                {% endif %}
+                <div class="col">
+                    <p class="card-text">{{ thread.contents }}</p>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <span class="badge badge-primary">{{ thread.likes }} Likes</span>
+                <span class="badge badge-danger">{{ thread.dislikes }} Disikes</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- replies -->
+    <div class="row">
+        <div class="col-6">
+            {% for reply in replies_with %}
+            <div class="row card">
+                <div class="card-body media">
+                    {% if reply.attached_image %}
+                    <img src="{{ reply.attached_image.url }}" class="mr-3" alt="...">
+                    {% endif %}
+                    <div class="media-body">
+                        <h5 class="mt-0">{{ reply.title }}</h5>
+                        {{ reply.contents }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-6">
+            {% for reply in replies_against %}
+            <div class="row card">
+                <div class="card-body media">
+                    {% if reply.attached_image %}
+                    <img src="{{ reply.attached_image.url }}" class="mr-3" alt="...">
+                    {% endif %}
+                    <div class="media-body">
+                        <h5 class="mt-0">{{ reply.title }}</h5>
+                        {{ reply.contents }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock contents %}

@@ -5,6 +5,6 @@ from . import views
 
 urlpatterns = [
     path('', views.catalog_view),
-    path('thread/view/<int:id>/', views.view_thread),
+    path('thread/view/<int:id>/', views.view_thread, name="view_thread"),
     path('thread/post/', views.create_thread),
 ]

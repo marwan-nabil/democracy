@@ -1,0 +1,24 @@
+{% extends './base.html' %}
+{% block contents %}
+
+{% include './navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        {% for thread in catalog_threads %}
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="card mb-2">
+                {% if thread.attached_image %}
+                <img class="card-img-top" src="{{ thread.attached_image.url }}" alt="Placeholder image">
+                {% endif %}
+                <div class="card-body">
+                    <h6 class="card-title">{{ thread.title }}</h6>
+                    <p class="card-text text-small">{{ thread.contents }}</p>
+                    <a href="{% url 'view_thread' thread.id %}" class="card-link">read</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock contents %}
