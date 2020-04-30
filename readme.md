@@ -14,7 +14,7 @@
 `pip install -r requirements.txt`   
 
 4. cd into the server directory.   
-`cd frontend_server`
+`cd democracy_server`
 
 5. commit all database operations.   
 `python manage.py migrate`
