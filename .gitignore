@@ -133,3 +133,5 @@ dmypy.json
 .vscode/
 # user uploaded content
 MEDIA/
+# database files
+*.sqlite3

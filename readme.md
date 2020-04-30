@@ -1,4 +1,4 @@
-# how to install
+# how to install the server
 ---
 
 1. git clone this repo.
@@ -21,6 +21,19 @@
 
 6. run the server.   
 `python manage.py runserver`   
+
+
+# how to install the client
+---
+
+1. cd into democracy_client   
+`cd democracy_client`
+
+2. install dependencies (create-react-app generated those)   
+`npm install`
+
+2. run the client.    
+`npm start`
 
 
 # basic architecture
