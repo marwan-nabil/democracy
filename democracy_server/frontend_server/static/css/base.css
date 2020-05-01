@@ -1,3 +1,37 @@
+body{
+    color: rgb(39, 37, 59);
+    background-color: #d9bfb7;
+}
+
 .text-small {
     font-size: .7em;
 }
+
+img{
+    max-height: 300px;
+    max-width: 400px;
+    border: 1px solid black;
+} 
+
+.card{
+    background-color: #f0e0d6;
+    border: 1px solid #d9bfb7;
+}
+
+/* hhhh stolen from 4chan */
+.reply{
+    max-height: 20em;
+    overflow: hidden;
+    background-color: #f0e0d6;
+    border: 1px solid #d9bfb7;
+    border-left: none;
+    border-top: none;
+}
+
+.reply img{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+/* end hhhhhhhhhhh */
+

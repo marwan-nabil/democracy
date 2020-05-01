@@ -11,14 +11,20 @@
                 {{ thread.title }}
             </div>
             <div class="card-body row">
+                <!-- if thread image render this style -->
                 {% if thread.attached_image %}
-                <div class="col-4">
+                <div class="d-inline w-25">
                     <img class="img-fluid" src="{{ thread.attached_image.url }}">
                 </div>
-                {% endif %}
-                <div class="col">
-                    <p class="card-text">{{ thread.contents }}</p>
+                <div class="w-75">
+                    <p class="text-left ml-2">{{ thread.contents }}</p>
                 </div>
+                {% else %}
+                <!-- if not render this -->
+                <div class="m-auto p-2">
+                    <p class="text-left">{{ thread.contents }}</p>
+                </div>
+                {% endif %}
             </div>
             <div class="card-footer text-muted">
                 <span class="badge badge-primary">{{ thread.likes }} Likes</span>
@@ -28,31 +34,45 @@
     </div>
 
     <!-- replies -->
-    <div class="row">
+    <div class="row mt-3">
+        <!-- replies with-->
         <div class="col-6">
+            <!-- would probably replace with fancy fontawesome with replies c -->
+            {% if replies_with %}
+            <span class="bg-success p-2">Shows solidarity : {{replies_with.count}}</span>
+            {% endif %}
+            
             {% for reply in replies_with %}
-            <div class="row card">
+            <div class="reply row card mt-2">
                 <div class="card-body media">
                     {% if reply.attached_image %}
-                    <img src="{{ reply.attached_image.url }}" class="mr-3" alt="...">
+                    <img src="{{ reply.attached_image.url }}" class="mr-3 w-50 mh-50 float-left" alt="...">
                     {% endif %}
-                    <div class="media-body">
+                    <div class="media-body float-left">
                         <h5 class="mt-0">{{ reply.title }}</h5>
                         {{ reply.contents }}
                     </div>
                 </div>
             </div>
             {% endfor %}
+
         </div>
-        <div class="col-6">
+
+        <!-- replies against-->
+        <div class="col-6 ">  
+
+            {% if replies_against %}
+            <span class="bg-danger p-2">Better have them dead : {{replies_against.count}}</span>
+            {% endif %}
+            
             {% for reply in replies_against %}
-            <div class="row card">
+            <div class="reply row card mt-2">
                 <div class="card-body media">
                     {% if reply.attached_image %}
-                    <img src="{{ reply.attached_image.url }}" class="mr-3" alt="...">
+                    <img src="{{ reply.attached_image.url }}" class="mr-3 w-50" alt="...">
                     {% endif %}
-                    <div class="media-body">
-                        <h5 class="mt-0">{{ reply.title }}</h5>
+                    <div>
+                        <h5 class="reply-title">{{ reply.title }}</h5>
                         {{ reply.contents }}
                     </div>
                 </div>
