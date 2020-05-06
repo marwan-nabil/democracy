@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'public_api.apps.PublicApiConfig',
     'threads.apps.ThreadsConfig',
     'users.apps.UsersConfig',
+    #(54ba): swagger
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,21 @@ MEDIA_URL = '/media/'
 # (marwan): this is the path to where user uploaded files will go
 #           to be replaced later by a CDN or something idk
 MEDIA_ROOT = os.path.join(BASE_DIR, '../MEDIA/')
+
+# Rest framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.TemplateHTMLRenderer',
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+    ],
+    'DEFAULT_PAGINATION_CLASS':
+    'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+}
